@@ -1,0 +1,7 @@
+.footer {
+    @include flexCenter(row);
+    background-color: $marvel-red;
+    color: $marvel-white;
+    font-family: $primary-font;
+    height: 80px;
+}
