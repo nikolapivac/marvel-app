@@ -1,0 +1,33 @@
+@mixin flexCenter($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flexBetweenCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@mixin desktopGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+@mixin tabletGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@mixin mobileGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+}

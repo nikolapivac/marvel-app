@@ -1,0 +1,9 @@
+.header {
+    background-color: $marvel-red;
+    @include flexCenter(row);
+    box-shadow: $strong;
+    #{&}_logo {
+        width: 240px;
+        height: auto;
+    }
+}
