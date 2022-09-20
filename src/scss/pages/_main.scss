@@ -1,0 +1,15 @@
+.search_area {
+    @include flexCenter(column);
+    #{&}_title {
+        font-size: 3rem;
+        font-family: $primary-font;
+        color: $black;
+        text-shadow: 1px 1px $marvel-red;
+        letter-spacing: 1px;
+
+        @media screen and (max-width: $mobile-breakpoint){
+            text-align: center;
+            font-size: 2.5rem;
+        }
+    }
+}
