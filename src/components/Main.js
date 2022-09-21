@@ -27,7 +27,7 @@ const Main = () => {
                 <h1 className="search_area_title">Find your favorite Marvel characters!</h1>
                 <input type="text" placeholder="Search..." onChange={e => setSearchTerm(e.target.value)} value={searchTerm}/>
             </div>
-            <Characters characters={characters}/>
+            <Characters characters={characters} searchTerm={searchTerm}/>
         </div>
     )
 }

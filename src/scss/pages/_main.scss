@@ -1,6 +1,7 @@
 .main {
-    background-color: rgb(37, 124, 165);
+    background-color: $blue;
     padding-bottom: 80px;
+    min-height: 100vh;
 }
 
 .search_area {
@@ -30,21 +31,43 @@
     }
 }
 
+.fav_title {
+    font-size: 2rem;
+    color: $marvel-white;
+    font-family: $primary-font;
+    letter-spacing: 1px;
+}
+
 .card {
     background-color: $marvel-red;
     padding: 24px;
     border-radius: 16px;
-    
+
+    #{&}_info{
+        @include flexBetween;
+        padding: 0 8px;
+    }
 
     h1 {
         color: $marvel-white;
         font-family: $primary-font;
-        text-align: center;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     img {
         width: 100%;
         border-radius: 8px;
+    }
+
+    .book-grey {
+        color: $grey;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .book-gold {
+        color: $gold;
+        font-size: 2rem;
+        cursor: pointer;
     }
 }
