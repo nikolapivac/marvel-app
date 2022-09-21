@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Characters from "./Characters";
 import axios from "axios";
 
 const Main = () => {
@@ -15,8 +16,8 @@ const Main = () => {
 
         const fetch = async() => {
             const res = await axios(url)
-            setCharacters(res.data); 
-            
+            setCharacters(res.data.data.results);
+            console.log(characters);
         }
         fetch();
     }, [searchTerm])
@@ -27,9 +28,7 @@ const Main = () => {
                 <h1 className="search_area_title">Find your favorite Marvel characters!</h1>
                 <input type="text" placeholder="Search..." onChange={e => setSearchTerm(e.target.value)} value={searchTerm}/>
             </div>
-            <div className="characters_grid">
-                
-            </div>
+            <Characters characters={characters}/>
         </div>
     )
 }
