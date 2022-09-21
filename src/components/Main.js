@@ -17,7 +17,6 @@ const Main = () => {
         const fetch = async() => {
             const res = await axios(url)
             setCharacters(res.data.data.results);
-            console.log(characters);
         }
         fetch();
     }, [searchTerm])
