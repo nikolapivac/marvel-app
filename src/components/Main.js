@@ -26,6 +26,7 @@ const Main = () => {
             <div className="search_area">
                 <h1 className="search_area_title">Find your favorite Marvel characters!</h1>
                 <input type="text" placeholder="Search..." onChange={e => setSearchTerm(e.target.value)} value={searchTerm}/>
+                {searchTerm ? "" : <h4 className="search_area_info">Bookmarked characters will appear here</h4>}
             </div>
             <Characters characters={characters} searchTerm={searchTerm}/>
         </div>
