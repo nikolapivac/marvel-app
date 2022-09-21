@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AppContext = createContext(null);
 export const useAppContext = () => {
@@ -13,6 +13,21 @@ export const useAppContext = () => {
 
 const AppContextProvider = ({children}) => {
     const [bookmarked, setBookmarked] = useState([]);
+
+    //Store bookmarked characters in local storage
+    useEffect(() => {
+        const getBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+        if (getBookmarks) setBookmarked(getBookmarks);
+    }, [])
+
+    useEffect(() => {
+        if(bookmarked?.length){
+            localStorage.setItem("bookmarks", JSON.stringify(bookmarked));
+        } else{ 
+            localStorage.clear();
+        }
+    }, [bookmarked])
+
 
     const addToBookmarked = (character) => {
         const oldBookmarked = [...bookmarked];
