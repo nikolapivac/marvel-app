@@ -1,0 +1,46 @@
+.container {
+    padding: 0;
+    @include flexCenter(row);
+}
+
+.page{
+	padding: 10px;
+    background-color: $marvel-red;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-family: $primary-font;
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    @media screen and (max-width: $mobile-breakpoint){
+        margin-right: 8px;
+        font-size: 1rem;
+    }
+}
+
+.disabled{
+    cursor: not-allowed;
+}
+
+.active{
+	border: 1px solid $marvel-white;
+    font-weight: bold;
+}
+
+.previous{
+    padding: 10px;
+    border-radius: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.break{
+    padding: 10px;
+}
+
+.next{
+    padding: 10px;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+}

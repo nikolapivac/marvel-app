@@ -12,50 +12,42 @@ const Characters = ({characters, searchTerm}) => {
         return boolean;
     }
 
-    const displayData = () => {
-        if(searchTerm === ""){
-            return (
-                bookmarked.map(character => {
-                    return(
-                        <div key={character.id} className="card">
-                            <img src={character.thumbnail.path + "/portrait_incredible." + character.thumbnail.extension} alt=""/>
-                            <div className="card_info">
-                                <h1>{character.name}</h1>
-                                {
-                                    isBookmarked(character.id) ? 
-                                    <button onClick={() => removeFromBookmarked(character.id)}><FontAwesomeIcon className="book-gold" icon={faBookmark} /></button>
-                                    : <button onClick={() => addToBookmarked(character)}><FontAwesomeIcon className="book-grey" icon={faBookmark} /></button>
-                                }
-                            </div>
-                        </div>
-                    )
-                })
-            )
-        }
-        else {
-            return (
-                characters.map(character => {
-                    return(
-                        <div key={character.id} className="card">
-                            <img src={character.thumbnail.path + "/portrait_incredible." + character.thumbnail.extension} alt=""/>
-                            <div className="card_info">
-                                <h1>{character.name}</h1>
-                                {
-                                    isBookmarked(character.id) ? 
-                                    <button onClick={() => removeFromBookmarked(character.id)}><FontAwesomeIcon className="book-gold" icon={faBookmark} /></button>
-                                    : <button onClick={() => addToBookmarked(character)}><FontAwesomeIcon className="book-grey" icon={faBookmark} /></button>
-                                }
-                            </div>
-                        </div>
-                    )
-                })
-            )
-        }
-    }
-
+    // if user is interacting with the search bar, display the characters;
+    // if search bar is empty, display bookmarked characters
     return (
         <div className="character-grid">
-            {displayData()}
+            {searchTerm ? 
+            characters.map(character => {
+                return(
+                    <div key={character.id} className="card">
+                        <img src={character.thumbnail.path + "/portrait_incredible." + character.thumbnail.extension} alt=""/>
+                        <div className="card_info">
+                            <h1>{character.name}</h1>
+                            {
+                                isBookmarked(character.id) ? 
+                                <button onClick={() => removeFromBookmarked(character.id)}><FontAwesomeIcon className="book-gold" icon={faBookmark} /></button>
+                                : <button onClick={() => addToBookmarked(character)}><FontAwesomeIcon className="book-grey" icon={faBookmark} /></button>
+                            }
+                        </div>
+                    </div>
+                )
+            }) :
+            bookmarked.map(character => {
+                return(
+                    <div key={character.id} className="card">
+                        <img src={character.thumbnail.path + "/portrait_incredible." + character.thumbnail.extension} alt=""/>
+                        <div className="card_info">
+                            <h1>{character.name}</h1>
+                            {
+                                isBookmarked(character.id) ? 
+                                <button onClick={() => removeFromBookmarked(character.id)}><FontAwesomeIcon className="book-gold" icon={faBookmark} /></button>
+                                : <button onClick={() => addToBookmarked(character)}><FontAwesomeIcon className="book-grey" icon={faBookmark} /></button>
+                            }
+                        </div>
+                    </div>
+                )
+            })
+            }
         </div>
     )
 }
