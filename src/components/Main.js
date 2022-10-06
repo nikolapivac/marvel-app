@@ -10,6 +10,7 @@ const Main = () => {
     const [currentPage, setCurrentPage] = useState(1); 
     const [offset, setOffset] = useState(0);
 
+
     const calculateNumberOfPages = (total) => {
         let number;
         if(total % 20 === 0){
@@ -37,8 +38,13 @@ const Main = () => {
             const res = await axios(url);
             setCharacters(res.data.data.results);
             setPageCount(calculateNumberOfPages(res.data.data.total));
+            setCurrentPage(1);
         }
-        fetch();
+        const timer = setTimeout(() => {
+            fetch();
+        }, 300);
+      
+        return () => clearTimeout(timer);
     }, [searchTerm, offset])
 
     return (
